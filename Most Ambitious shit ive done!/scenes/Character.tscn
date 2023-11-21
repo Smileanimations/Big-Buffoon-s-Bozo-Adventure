@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://me8wba8dy0qb"]
+
+[ext_resource type="Script" path="res://scripts/charformat.gd" id="1_h1qtp"]
+
+[node name="Character" type="Node2D"]
+script = ExtResource("1_h1qtp")
+
+[node name="Button" type="Button" parent="."]
+offset_right = 169.0
+offset_bottom = 91.0
+text = "Level Up!"
+
+[node name="Button2" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="pressed" from="Button" to="." method="levelUp"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button2" to="." method="applyDamage" binds= [100]]
