@@ -2,6 +2,8 @@
 
 extends Node
 
+signal statsChanged
+
 # Base stats for character
 @export var statsBase = {
 	"HealthMax" : 100,
@@ -23,7 +25,7 @@ extends Node
 
 # The faction that the character belongs to
 @export_enum ("Player", "Enemy") var charFaction: String = "Player"
-signal statsupdate
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 # Generates the characters stats
@@ -36,6 +38,7 @@ func _ready():
 # `val` is clamped to remain between 0 and the character's max health
 func setHealth(val):
 	stats["Health"] = clamp(val, 0, stats["HealthMax"])
+	statsChanged.emit()
 
 
 # Fuction to calculate the current stats of the character
@@ -50,7 +53,9 @@ func calcStats():
 
 # Prints the character's current stats
 	print(stats)
-	statsupdate.emit()
+	statsChanged.emit()
+
+
 # var that shows how much xp is required to reach the next level
 var xpToNext = 0
 # Function to calculate the character's level based on how much XP they have
@@ -100,6 +105,7 @@ func applyDamage(damage):
 	stats["Health"] = max(stats["Health"] - damage, 0)
 # Print the character's stats
 	print(stats)
+	statsChanged.emit()
 
 
 # Function that calculates how much healing the character should receive
@@ -110,4 +116,5 @@ func applyHealing(healing):
 	stats["Health"] = min(stats["Health"] + healing, stats["HealthMax"])
 # Print the character's stats
 	print(stats)
+	statsChanged.emit()
 
