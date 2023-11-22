@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1s40ms0wu5pp"]
+[gd_scene load_steps=2 format=3 uid="uid://lrverdqosub2"]
 
 [ext_resource type="Script" path="res://scripts/toolbox.gd" id="1_rcodo"]
 
@@ -21,3 +21,6 @@ text = "Damage"
 [node name="HealingButton" type="Button" parent="."]
 layout_mode = 2
 text = "Heal"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
