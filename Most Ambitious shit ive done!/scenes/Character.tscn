@@ -4,24 +4,3 @@
 
 [node name="Character" type="Node2D"]
 script = ExtResource("1_jnky3")
-
-[node name="LevelButton" type="Button" parent="."]
-offset_right = 192.0
-offset_bottom = 56.0
-text = "Level Up!"
-
-[node name="DamageButton" type="Button" parent="."]
-offset_top = 64.0
-offset_right = 192.0
-offset_bottom = 120.0
-text = "Damage"
-
-[node name="HealingButton" type="Button" parent="."]
-offset_top = 128.0
-offset_right = 192.0
-offset_bottom = 184.0
-text = "Heal"
-
-[connection signal="pressed" from="LevelButton" to="." method="levelUp"]
-[connection signal="pressed" from="DamageButton" to="." method="applyDamage" binds= [100]]
-[connection signal="pressed" from="HealingButton" to="." method="applyHealing" binds= [100]]

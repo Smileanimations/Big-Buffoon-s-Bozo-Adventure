@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1s40ms0wu5pp"]
+
+[ext_resource type="Script" path="res://scripts/toolbox.gd" id="1_rcodo"]
+
+[node name="toolbox" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rcodo")
+
+[node name="LevelButton" type="Button" parent="."]
+layout_mode = 2
+text = "Level Up!"
+
+[node name="DamageButton" type="Button" parent="."]
+layout_mode = 2
+text = "Damage"
+
+[node name="HealingButton" type="Button" parent="."]
+layout_mode = 2
+text = "Heal"

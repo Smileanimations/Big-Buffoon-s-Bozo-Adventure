@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c18pag1n4enkm"]
+
+[ext_resource type="Script" path="res://scripts/fightTest.gd" id="1_hq4fu"]
+[ext_resource type="PackedScene" uid="uid://me8wba8dy0qb" path="res://scenes/Character.tscn" id="1_v3fi4"]
+
+[node name="FightTest" type="Node2D"]
+script = ExtResource("1_hq4fu")
+
+[node name="Characters" type="Node" parent="."]
+
+[node name="Player" parent="Characters" instance=ExtResource("1_v3fi4")]
+
+[node name="Enemy" parent="Characters" instance=ExtResource("1_v3fi4")]
+charFaction = "Enemy"
+
+[node name="chartools" type="TabContainer" parent="."]
+offset_right = 640.0
+offset_bottom = 448.0

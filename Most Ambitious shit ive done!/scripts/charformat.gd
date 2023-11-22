@@ -1,3 +1,5 @@
+### Script that handles character information
+
 extends Node
 
 # Base stats for character
@@ -19,6 +21,8 @@ extends Node
 	"XP" : 0,
 }
 
+# The faction that the character belongs to
+@export_enum ("Player", "Enemy") var charFaction: String = "Player"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
