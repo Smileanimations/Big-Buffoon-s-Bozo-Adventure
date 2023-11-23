@@ -24,3 +24,12 @@ text = "Heal"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
+
+[node name="CagedAnimal" type="Label" parent="."]
+layout_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

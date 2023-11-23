@@ -3,6 +3,9 @@
 extends Node
 
 signal statsChanged
+signal damageChanged
+signal healthChanged
+signal levelChanged
 
 # Base stats for character
 @export var statsBase = {
@@ -91,6 +94,8 @@ func levelUp():
 	stats["XP"] += xpToNext
 # Re-calculate the character's current stats with the new level
 	calcStats()
+	levelChanged.emit()
+	
 
 
 # Function that calculates how much damage the character should take when hit
@@ -106,7 +111,7 @@ func applyDamage(damage):
 # Print the character's stats
 	print(stats)
 	statsChanged.emit()
-
+	damageChanged.emit(damage)
 
 # Function that calculates how much healing the character should receive
 func applyHealing(healing):
@@ -117,4 +122,5 @@ func applyHealing(healing):
 # Print the character's stats
 	print(stats)
 	statsChanged.emit()
+	healthChanged.emit(healing)
 
