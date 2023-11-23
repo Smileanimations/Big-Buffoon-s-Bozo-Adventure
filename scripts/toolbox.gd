@@ -6,7 +6,8 @@ extends Node
 @onready var dmgButton = $DamageButton
 @onready var helButton = $HealingButton
 @onready var statLabel = $Label
-@onready var damageLabel = $CagedAnimal
+##This is the label showing all the results after pressing one of buttons thus the name "Results"
+@onready var resultLabel = $Results
 @onready var timer = $Timer
 var tijd = 1
 var character
@@ -17,18 +18,23 @@ func updateStats():
 		txt += stat + " : " + str(character.stats[stat]) + "\n"
 	statLabel.text = txt
  
+## All these functions basically do the same thing: When the Level up, Damage or Heal button is pressed 
+## it will Display text underneath all the stats displaying how much damage has been taken or health has been
+## regenerated. Or simply "Level Up!"
+
 func updateDamage(damage):
+	# Added a timer for 3 seconds, function for when it ends is \/ down there \/
 	timer.start()
-	damageLabel.text = "Player took " + str(damage) + " Damage"
+	resultLabel.text = "Player took " + str(damage) + " Damage"
 
 
 func updateHealth(healing):
 	timer.start()
-	damageLabel.text = "Player Healed " + str(healing) + " HP"
+	resultLabel.text = "Player Healed " + str(healing) + " HP"
 
 func updateLevel():
 	timer.start()
-	damageLabel.text = "Level Up!"
+	resultLabel.text = "Level Up!"
 
 	
 func startup(c):
@@ -43,7 +49,7 @@ func startup(c):
 	character.levelChanged.connect(updateLevel)
 	updateStats()
 
-
+#Removes the text after the 3 second timer runs out (basically a simple space but it looks cool in practice)
 func _on_timer_timeout():
-	damageLabel.text = " "
+	resultLabel.text = " "
 	

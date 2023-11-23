@@ -3,8 +3,11 @@
 extends Node
 
 signal statsChanged
+#This signal can be found at the "Damage Applied" Function 
 signal damageChanged
+#This signal can be found at the "Healing Applied" Function
 signal healthChanged
+#And lastly this signal can be found at the "Level up" Function
 signal levelChanged
 
 # Base stats for character
@@ -94,6 +97,7 @@ func levelUp():
 	stats["XP"] += xpToNext
 # Re-calculate the character's current stats with the new level
 	calcStats()
+	#Just like the one up here ^ its sends a signal when the level up button is pressed
 	levelChanged.emit()
 	
 
@@ -111,6 +115,7 @@ func applyDamage(damage):
 # Print the character's stats
 	print(stats)
 	statsChanged.emit()
+	#Just like the one up here ^ its sends a signal when the damage button is pressed
 	damageChanged.emit(damage)
 
 # Function that calculates how much healing the character should receive
@@ -122,5 +127,6 @@ func applyHealing(healing):
 # Print the character's stats
 	print(stats)
 	statsChanged.emit()
+	#Just like the one up here ^ its sends a signal when the healing button is pressed
 	healthChanged.emit(healing)
 
