@@ -4,9 +4,12 @@ extends Node
 
 @onready var charNode = $Characters
 @onready var toolNode = $chartools
+@onready var moveNode = $MoveMenu
+
 @onready var quitbutton = $Quitbutton
 
-var toolScene = "res://scenes/toolbox.tscn"
+var toolScene = preload("res://scenes/toolbox.tscn")
+var moveScene = preload("res://moves/template/MoveMenu.tscn")
 
 var fighters
 
@@ -14,7 +17,7 @@ var fighters
 func _ready():
 	fighters = getFighters()
 	makeTools()
-
+	makeMoves()
 
 
 func getFighters():
@@ -23,9 +26,20 @@ func getFighters():
 
 func makeTools():
 	for fighter in fighters:
-		var tool = load(toolScene).instantiate()
+		var tool = toolScene.instantiate()
 		toolNode.add_child(tool)
 		tool.startup(fighter)
+
+
+func makeMoves():
+	for fighter in fighters:
+		var menu = moveScene.instantiate()
+		moveNode.add_child(menu)
+		menu.set_name.call_deferred(fighter.name)
+		for move in fighter.moveList:
+			var moveChild = load(move).instantiate()
+			menu.add_child(moveChild)
+			moveChild.startup(fighter)
 
 
 func _on_quitbutton_pressed():

@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://lrverdqosub2"]
+[gd_scene load_steps=4 format=3 uid="uid://lrverdqosub2"]
 
 [ext_resource type="Script" path="res://scripts/toolbox.gd" id="1_rcodo"]
-[ext_resource type="PackedScene" uid="uid://btujq7423kuwp" path="res://moves/heal/HealBasic.tscn" id="2_tx7k1"]
-[ext_resource type="PackedScene" uid="uid://b7pnotr0dgx2q" path="res://moves/attack/AttackBasic.tscn" id="3_rama0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqnyk"]
 bg_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
@@ -48,14 +46,5 @@ layout_mode = 2
 [node name="ResultTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
-
-[node name="MoveList" type="HBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="BaseMove" parent="MoveList" instance=ExtResource("2_tx7k1")]
-layout_mode = 2
-
-[node name="BaseMove2" parent="MoveList" instance=ExtResource("3_rama0")]
-layout_mode = 2
 
 [connection signal="timeout" from="ResultTimer" to="." method="_on_timer_timeout"]

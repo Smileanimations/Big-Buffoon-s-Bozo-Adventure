@@ -31,6 +31,10 @@ signal levelChanged
 # The faction that the character belongs to
 @export_enum ("Player", "Enemy") var charFaction: String = "Player"
 
+# The moves that the character has
+@export var moveList : PackedStringArray
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 # Generates the characters stats
@@ -128,3 +132,6 @@ func applyHealing(healing):
 	#Just like the one up here ^ its sends a signal when the healing button is pressed
 	healthChanged.emit(healing)
 
+
+func moveSelected(what):
+	pass
