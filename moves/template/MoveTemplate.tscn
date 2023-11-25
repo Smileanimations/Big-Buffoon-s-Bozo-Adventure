@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://oh1wum77mg56"]
+
+[ext_resource type="Script" path="res://moves/template/moveScript.gd" id="1_0ojsh"]
+
+[node name="BaseMove" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -896.0
+offset_bottom = -520.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ojsh")
+moveName = "Name"
+moveDesc = "Description"
+
+[node name="MoveSelect" type="Button" parent="."]
+layout_mode = 2
+
+[node name="MoveLabels" type="VBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MoveName" type="Label" parent="MoveLabels"]
+layout_mode = 2
+text = "Move Name"
+horizontal_alignment = 1
+
+[node name="MoveDesc" type="Label" parent="MoveLabels"]
+layout_mode = 2
+text = "Move Description"
+horizontal_alignment = 1

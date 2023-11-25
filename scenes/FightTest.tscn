@@ -14,14 +14,19 @@ script = ExtResource("1_hq4fu")
 charFaction = "Enemy"
 
 [node name="chartools" type="TabContainer" parent="."]
-offset_right = 640.0
-offset_bottom = 448.0
+offset_right = 704.0
+offset_bottom = 512.0
 
 [node name="Quitbutton" type="Button" parent="."]
-offset_left = 540.0
-offset_top = 403.0
-offset_right = 640.0
-offset_bottom = 448.0
+offset_left = 600.0
+offset_top = 464.0
+offset_right = 704.0
+offset_bottom = 512.0
 text = "QUIT!"
+
+[node name="CharacterSelector" type="VBoxContainer" parent="."]
+offset_left = 960.0
+offset_right = 1152.0
+offset_bottom = 448.0
 
 [connection signal="pressed" from="Quitbutton" to="." method="_on_quitbutton_pressed"]

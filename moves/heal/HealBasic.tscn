@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://btujq7423kuwp"]
+
+[ext_resource type="PackedScene" uid="uid://oh1wum77mg56" path="res://moves/template/MoveTemplate.tscn" id="1_r0h8r"]
+
+[node name="BaseMove" instance=ExtResource("1_r0h8r")]
+moveName = "Basic Heal"
+moveDesc = "A basic healing spell that heals 20 HP"
+moveEffects = {
+"Healing": 20
+}
