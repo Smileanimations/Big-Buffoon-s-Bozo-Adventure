@@ -9,11 +9,9 @@ script = ExtResource("1_hq4fu")
 [node name="Characters" type="Node" parent="."]
 
 [node name="Player" parent="Characters" instance=ExtResource("1_v3fi4")]
-moveList = PackedStringArray("res://moves/attack/AttackBasic.tscn", "res://moves/heal/HealBasic.tscn")
 
 [node name="Enemy" parent="Characters" instance=ExtResource("1_v3fi4")]
 charFaction = "Enemy"
-moveList = PackedStringArray("res://moves/attack/AttackBasic.tscn", "res://moves/heal/HealBasic.tscn")
 
 [node name="chartools" type="TabContainer" parent="."]
 offset_right = 640.0

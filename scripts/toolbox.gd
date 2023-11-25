@@ -60,7 +60,7 @@ func startup(c):
 	updateStats()
 
 
-# Removes the text after the 3 second timer runs out
+# Removes the text after the 2 second timer runs out
 func _on_timer_timeout():
 	resultLabel.text = ""
 	
