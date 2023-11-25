@@ -4,6 +4,7 @@ extends Node
 
 @onready var charNode = $Characters
 @onready var toolNode = $chartools
+@onready var quitbutton = $Quitbutton
 
 var toolScene = "res://scenes/toolbox.tscn"
 
@@ -15,6 +16,7 @@ func _ready():
 	makeTools()
 
 
+
 func getFighters():
 	return charNode.get_children()
 
@@ -24,3 +26,7 @@ func makeTools():
 		var tool = load(toolScene).instantiate()
 		toolNode.add_child(tool)
 		tool.startup(fighter)
+
+
+func _on_quitbutton_pressed():
+	get_tree().quit()

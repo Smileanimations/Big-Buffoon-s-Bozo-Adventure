@@ -1,0 +1,11 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1700908289
+icon.svg::CompressedTexture2D::3937897004508967901::1700908205::1700908343::1::::<><>::
+::res://scenes/::1700908205
+Character.tscn::PackedScene::852566636927529621::1700908205::0::1::::<><>::res://scripts/charFormat.gd
+FightTest.tscn::PackedScene::6584989771314311202::1700908205::0::1::::<><>::res://scripts/fightTest.gd<>uid://me8wba8dy0qb::::res://scenes/Character.tscn
+toolbox.tscn::PackedScene::808454800138859581::1700908205::0::1::::<><>::res://scripts/toolbox.gd
+::res://scripts/::1700908205
+charformat.gd::GDScript::-1::1700908205::0::1::::<>Node<>::
+fightTest.gd::GDScript::-1::1700908205::0::1::::<>Node<>::
+toolbox.gd::GDScript::-1::1700908205::0::1::::<>Node<>::

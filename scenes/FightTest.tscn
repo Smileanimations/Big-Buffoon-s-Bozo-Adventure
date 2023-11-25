@@ -17,8 +17,11 @@ charFaction = "Enemy"
 offset_right = 640.0
 offset_bottom = 448.0
 
-[node name="Label" type="Label" parent="."]
-offset_left = 1.0
-offset_top = 178.0
-offset_right = 144.0
-offset_bottom = 204.0
+[node name="Quitbutton" type="Button" parent="."]
+offset_left = 540.0
+offset_top = 403.0
+offset_right = 640.0
+offset_bottom = 448.0
+text = "QUIT!"
+
+[connection signal="pressed" from="Quitbutton" to="." method="_on_quitbutton_pressed"]
