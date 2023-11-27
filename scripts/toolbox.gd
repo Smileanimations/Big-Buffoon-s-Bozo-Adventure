@@ -56,6 +56,7 @@ func startup(c, f):
 	character.statsChanged.connect(updateStats)
 	character.healthChanged.connect(updateHealth)
 	character.levelChanged.connect(updateLevel)
+	hubTemplate.parrychanged.connect(updateStats)
 # Updates the stat display so it's not blank on startup
 	f.hud.parryChanged.connect(parryChanged)
 	updateStats()
