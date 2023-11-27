@@ -6,6 +6,8 @@ extends Node
 @onready var parryTimer = $ParryTimer
 var character
 var stats
+signal parryvalue
+signal parryvaluemax
 
 func startup(c):
 	character = c
@@ -32,7 +34,9 @@ func update():
 
 #adds a point every second!
 func _on_parry_timer_timeout():
-	parryBar.value += 2
+	parryBar.value += 5
 	if	parryBar.value == parryBar.max_value:
-		parryBar.max_value * 1.2
+		parryBar.max_value *= 2
 		parryBar.value = 0
+		parryvalue.emit()
+		parryvaluemax.emit()
