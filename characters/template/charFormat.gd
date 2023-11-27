@@ -154,5 +154,5 @@ func calcEffect(move):
 				applyHealing(val)
 
 
-func moveSelected(what):
+func moveSelected(_what):
 	pass
