@@ -12,13 +12,15 @@ signal levelChanged
 # Base stats for character
 @export var statsBase = {
 	"HealthMax" : 100,
+	"StaminaMax" : 100,
 	"Speed" : 5,
-	"Defense" : 20,
+	"Defense" : 10,
 }
 
 # Stats gained on level up
 @export var statsPerLevel = {
 	"HealthMax" : 5,
+	"StaminaMax" : 5,
 	"Speed" : 1,
 	"Defense" : 2,
 }
@@ -41,12 +43,21 @@ func _ready():
 	calcStats()
 # Heals the character, this will be used to set the character's health to its saved value when saving is added
 	setHealth(INF)
+# Refills the character's stamina
+	setStamina(INF)
 
 
 # Function to set the health of a character to `val`
 # `val` is clamped to remain between 0 and the character's max health
 func setHealth(val):
 	stats["Health"] = clamp(val, 0, stats["HealthMax"])
+	statsChanged.emit()
+
+
+# Function to set the stamina of a character to `val`
+# `val` is clamped to remain between 0 and the character's max stamina
+func setStamina(val):
+	stats["Stamina"] = clamp(val, 0, stats["StaminaMax"])
 	statsChanged.emit()
 
 
@@ -131,6 +142,16 @@ func applyHealing(healing):
 	statsChanged.emit()
 	#Just like the one up here ^ its sends a signal when the healing button is pressed
 	healthChanged.emit(healing)
+
+
+func calcEffect(move):
+	for effect in move.moveEffects:
+		var val = move.moveEffects[effect]
+		match effect:
+			"Damage":
+				applyDamage(val)
+			"Healing":
+				applyHealing(val)
 
 
 func moveSelected(what):

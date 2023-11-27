@@ -20,18 +20,21 @@ offset_right = 640.0
 offset_bottom = 384.0
 
 [node name="Quitbutton" type="Button" parent="."]
+visible = false
 offset_left = 536.0
 offset_top = 336.0
 offset_right = 640.0
 offset_bottom = 384.0
 text = "QUIT!"
 
-[node name="CharacterSelector" type="VBoxContainer" parent="."]
-offset_left = 960.0
+[node name="CharSelect" type="VBoxContainer" parent="."]
+offset_left = 704.0
+offset_top = 64.0
 offset_right = 1152.0
-offset_bottom = 448.0
+offset_bottom = 512.0
 
-[node name="MoveMenu" type="TabContainer" parent="."]
+[node name="MoveSelect" type="TabContainer" parent="."]
+visible = false
 offset_top = 544.0
 offset_right = 1152.0
 offset_bottom = 648.0

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://xf5akgmn6td3"]
+
+[ext_resource type="Script" path="res://characters/template/battle/battleTemplate.gd" id="1_u7h8y"]
+[ext_resource type="PackedScene" uid="uid://bhmwps23ijnc0" path="res://characters/template/hud/HUDTemplate.tscn" id="2_2og3p"]
+[ext_resource type="Texture2D" uid="uid://bwdsuady8dak8" path="res://icon.svg" id="3_osm0j"]
+
+[node name="BattleTemplate" type="Container"]
+custom_minimum_size = Vector2(256, 256)
+anchors_preset = -1
+anchor_right = 0.222
+anchor_bottom = 0.395
+offset_right = 0.255981
+offset_bottom = 0.0399933
+script = ExtResource("1_u7h8y")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+
+[node name="HUD" parent="." instance=ExtResource("2_2og3p")]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(128, 80)
+texture = ExtResource("3_osm0j")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+flat = true

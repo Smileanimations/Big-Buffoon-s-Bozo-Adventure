@@ -4,24 +4,38 @@ extends Node
 
 @onready var charNode = $Characters
 @onready var toolNode = $chartools
-@onready var moveNode = $MoveMenu
+@onready var moveSelect = $MoveSelect
+@onready var charSelect = $CharSelect
 
 @onready var quitbutton = $Quitbutton
 
 var toolScene = preload("res://scenes/toolbox.tscn")
 var moveScene = preload("res://moves/template/MoveMenu.tscn")
+var fighterScene = preload("res://characters/template/battle/BattleTemplate.tscn")
 
 var fighters
+var currMove
+var currChar
+
+var moveMenus = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	fighters = getFighters()
 	makeTools()
 	makeMoves()
+	makeFighers()
 
 
 func getFighters():
 	return charNode.get_children()
+
+
+func makeFighers():
+	for fighter in fighters:
+		var f = fighterScene.instantiate()
+		charSelect.add_child(f)
+		f.startup(fighter, self)
 
 
 func makeTools():
@@ -34,12 +48,34 @@ func makeTools():
 func makeMoves():
 	for fighter in fighters:
 		var menu = moveScene.instantiate()
-		moveNode.add_child(menu)
+		moveSelect.add_child(menu)
 		menu.set_name.call_deferred(fighter.name)
+		moveMenus.append(fighter.name)
 		for move in fighter.moveList:
 			var moveChild = load(move).instantiate()
 			menu.add_child(moveChild)
-			moveChild.startup(fighter)
+			moveChild.startup(fighter, self)
+
+
+func moveSelected(m):
+	if m == currMove:
+		currMove = null
+		print("Deselecting Move: %s" % m)
+	else:
+		currMove = m
+		print("Move Selected: %s" % m)
+
+
+func charSelected(c):
+	if c == currChar:
+		currChar = null
+		moveSelect.visible = false
+		print("Deselecting Character: %s" % c)
+	else:
+		currChar = c
+		moveSelect.visible = true
+		moveSelect.current_tab = moveMenus.find(c.name)
+		print("Character Selected: %s" % c)
 
 
 func _on_quitbutton_pressed():
