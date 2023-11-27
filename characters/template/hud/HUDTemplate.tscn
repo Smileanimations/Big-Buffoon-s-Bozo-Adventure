@@ -32,6 +32,7 @@ offset_left = -256.0
 offset_bottom = 16.0
 rotation = -2.0944
 pivot_offset = Vector2(256, 16)
+show_percentage = false
 
 [node name="ParryTimer" type="Timer" parent="."]
 
