@@ -18,13 +18,14 @@ var currMove
 var currChar
 
 var moveMenus = []
+var fighterCharacters = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	fighters = getFighters()
-	makeTools()
-	makeMoves()
 	makeFighers()
+	makeMoves()
+	makeTools()
 
 
 func getFighters():
@@ -36,13 +37,14 @@ func makeFighers():
 		var f = fighterScene.instantiate()
 		charSelect.add_child(f)
 		f.startup(fighter, self)
+		fighterCharacters[fighter.name] = f
 
 
 func makeTools():
 	for fighter in fighters:
 		var tool = toolScene.instantiate()
 		toolNode.add_child(tool)
-		tool.startup(fighter)
+		tool.startup(fighter, fighterCharacters[fighter.name])
 
 
 func makeMoves():

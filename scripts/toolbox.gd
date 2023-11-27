@@ -45,7 +45,7 @@ func updateLevel():
 	timer.start()
 
 
-func startup(c):
+func startup(c, f):
 	character = c
 	name = character.name
 # Connects the toolbox buttons to the character
@@ -57,10 +57,15 @@ func startup(c):
 	character.healthChanged.connect(updateHealth)
 	character.levelChanged.connect(updateLevel)
 # Updates the stat display so it's not blank on startup
+	f.hud.parryChanged.connect(parryChanged)
 	updateStats()
 
 
 # Removes the text after the 2 second timer runs out
 func _on_timer_timeout():
 	resultLabel.text = ""
-	
+
+
+func parryChanged(val, valMax):
+	print(val)
+	print(valMax)

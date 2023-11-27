@@ -15,6 +15,7 @@ func startup(c, f):
 	hud.startup(c)
 	nameplate.text = c.name
 
+
 func _ready():
 	selectButton.pressed.connect(charSelected)
 
