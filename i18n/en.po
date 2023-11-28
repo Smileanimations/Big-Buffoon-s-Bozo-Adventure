@@ -1,0 +1,7 @@
+msgid ""
+msgstr ""
+
+"Language: en\n"
+
+msgid "TEST_TL"
+msgstr "This text was translated!"

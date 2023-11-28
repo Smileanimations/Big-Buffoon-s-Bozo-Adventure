@@ -6,19 +6,47 @@
 script = ExtResource("1_khqoe")
 
 [node name="TabContainer" type="TabContainer" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1153.0
+offset_bottom = 647.0
 
-[node name="Button" type="Button" parent="."]
+[node name="Option" type="Button" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 473.0
-offset_top = 172.0
-offset_right = 688.0
-offset_bottom = 267.0
+offset_left = 689.0
+offset_top = 377.0
+offset_right = 1006.0
+offset_bottom = 553.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Options?!?"
+
+[node name="Lets go!" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 83.0
+offset_top = 201.0
+offset_right = 352.0
+offset_bottom = 273.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "LETS GO!"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Quit" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 592.0
+offset_top = 66.0
+offset_right = 830.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit The FUCKING Game"
+
+[connection signal="pressed" from="Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="Lets go!" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
