@@ -22,3 +22,7 @@ project/assembly_name="Big Buffoon-s Bozo Adventure"
 [filesystem]
 
 import/blender/enabled=false
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Translation/en.po")
