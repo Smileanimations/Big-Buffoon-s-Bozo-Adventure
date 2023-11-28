@@ -31,7 +31,7 @@ func update():
 
 #adds a point every second!
 func _on_parry_timer_timeout():
-	parryBar.value += 5
+	parryBar.value += 10
 	if parryBar.value == parryBar.max_value:
 		parryBar.max_value *= 2
 		parryBar.value = 0

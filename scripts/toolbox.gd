@@ -13,7 +13,6 @@ extends Node
 
 @onready var healthBar = $HealthBar
 
-
 var character
 
 
@@ -44,8 +43,8 @@ func updateLevel():
 	resultLabel.text = "Level Up!"
 	timer.start()
 
-func updateStamina():
-	resultLabel.text = "Recovered 100 Stamina"
+func updateStamina(val):
+	resultLabel.text = "Recovered %s Stamina" % val
 	timer.start()
 
 func startup(c, f):
