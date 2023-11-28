@@ -6,17 +6,7 @@ extends Node
 @onready var parryTimer = $ParryTimer
 var character
 var stats
-<<<<<<< Updated upstream
 signal parryChanged
-
-=======
-<<<<<<< HEAD
-signal parrychanged
-=======
-signal parryChanged
-
->>>>>>> e1b127cdf2903b67936e14e657f01f5404edf046
->>>>>>> Stashed changes
 
 func startup(c):
 	character = c
@@ -45,15 +35,6 @@ func _on_parry_timer_timeout():
 	if parryBar.value == parryBar.max_value:
 		parryBar.max_value *= 2
 		parryBar.value = 0
-<<<<<<< Updated upstream
 		parryChanged.emit(parryBar.value, parryBar.max_value)
 
-=======
-<<<<<<< HEAD
-		parrychanged.emit(parryBar.value, parryBar.max_value)
-=======
-		parryChanged.emit(parryBar.value, parryBar.max_value)
-
->>>>>>> e1b127cdf2903b67936e14e657f01f5404edf046
->>>>>>> Stashed changes
 

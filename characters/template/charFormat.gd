@@ -8,6 +8,8 @@ signal statsChanged
 signal healthChanged
 # Emitted when the character's level changes
 signal levelChanged
+# Emitted when the character's stamina changes
+signal staminaChanged
 
 # Base stats for character
 @export var statsBase = {
@@ -143,6 +145,17 @@ func applyHealing(healing):
 	#Just like the one up here ^ its sends a signal when the healing button is pressed
 	healthChanged.emit(healing)
 
+#its the one ^ up there but instead of health its stamina!
+func applyStamina(stamina):
+	# Prints the amount of stamina recovered
+	print("Recovering %s stamina to %s" % [stamina,name])
+	# Calculates the amount of stamina to recover
+	stats["Stamina"] = min(stats["Stamina"] + stamina, stats["StaminaMax"])
+	# Prints all the character's stats
+	print(stats)
+	statsChanged.emit()
+	staminaChanged.emit(stamina)
+	
 
 func calcEffect(move):
 	for effect in move.moveEffects:

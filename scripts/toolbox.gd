@@ -5,6 +5,7 @@ extends Node
 @onready var lvlButton = $ToolButtons/LevelButton
 @onready var dmgButton = $ToolButtons/DamageButton
 @onready var helButton = $ToolButtons/HealingButton
+@onready var stamButton = $ToolButtons/StaminaButton
 @onready var statLabel = $StatLabel
 ##This is the label showing all the results after pressing one of buttons thus the name "Results"
 @onready var resultLabel = $ResultLabel
@@ -21,7 +22,6 @@ func updateStats():
 	for stat in character.stats:
 		txt += "%s : %s\n" % [stat, character.stats[stat]]
 	statLabel.text = txt
-
 	healthBar.max_value = character.stats["HealthMax"]
 	healthBar.value = character.stats["Health"]
 
@@ -44,6 +44,9 @@ func updateLevel():
 	resultLabel.text = "Level Up!"
 	timer.start()
 
+func updateStamina():
+	resultLabel.text = "Recovered 100 Stamina"
+	timer.start()
 
 func startup(c, f):
 	character = c
@@ -52,11 +55,12 @@ func startup(c, f):
 	lvlButton.pressed.connect(character.levelUp)
 	dmgButton.pressed.connect(character.applyDamage.bind(100))
 	helButton.pressed.connect(character.applyHealing.bind(100))
+	stamButton.pressed.connect(character.applyStamina.bind(100))
 # Connects the character's signals to the toolbox
 	character.statsChanged.connect(updateStats)
 	character.healthChanged.connect(updateHealth)
 	character.levelChanged.connect(updateLevel)
-	hubTemplate.parrychanged.connect(updateStats)
+	character.staminaChanged.connect(updateStamina)
 # Updates the stat display so it's not blank on startup
 	f.hud.parryChanged.connect(parryChanged)
 	updateStats()
