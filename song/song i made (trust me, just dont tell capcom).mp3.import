@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://fwrif4junkor"
+path="res://.godot/imported/song i made (trust me, just dont tell capcom).mp3-73d1ef6a85ce060fa072b0ea6bf45805.mp3str"
+
+[deps]
+
+source_file="res://song/song i made (trust me, just dont tell capcom).mp3"
+dest_files=["res://.godot/imported/song i made (trust me, just dont tell capcom).mp3-73d1ef6a85ce060fa072b0ea6bf45805.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

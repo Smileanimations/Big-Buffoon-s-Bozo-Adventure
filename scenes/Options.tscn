@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfmq2ghadmjbq"]
+
+[ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_tfgt2"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tfgt2")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 797.0
+offset_bottom = 341.0
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="back" type="Button" parent="TabContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="TabContainer/back" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TabContainer/back" to="." method="_on_back_pressed"]
