@@ -16,6 +16,8 @@ func _on_quit_pressed():
 	
 func _on_option_pressed():
 	get_tree().change_scene_to_file("res://scenes/Options.tscn")
+	
+	
 
 
 
@@ -25,3 +27,7 @@ func _on_back_pressed():
 	get_tree().change_scene_to_file("res://scenes/Main Menu.tscn")
 	
 
+
+
+func _on_what_pressed():
+	get_tree().change_scene_to_file("res://other/scenes/Main Menu.tscn")
